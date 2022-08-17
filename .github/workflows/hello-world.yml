@@ -11,7 +11,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: code
-          path: ./raw
+          path: raw/
   Build:
     runs-on: ubuntu-latest
     container: gradle:6-jdk11
@@ -21,7 +21,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: code
-          path: ./raw
+          path: raw/
       - name: Build-application
         run: chmod +x ci/build-app.sh && ci/build-app.sh
       - name: Test
@@ -30,4 +30,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: code
-          path: ./build
+          path: build/
